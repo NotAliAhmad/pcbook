@@ -18,6 +18,7 @@ const maxImageSize = 1 << 20
 
 // LaptopServer is the server that provides laptop services
 type LaptopServer struct {
+	pb.UnimplementedLaptopServiceServer
 	laptopStore LaptopStore
 	imageStore  ImageStore
 	ratingStore RatingStore
@@ -25,7 +26,11 @@ type LaptopServer struct {
 
 // NewLaptopServer returns a new LaptopServer
 func NewLaptopServer(laptopStore LaptopStore, imageStore ImageStore, ratingStore RatingStore) *LaptopServer {
-	return &LaptopServer{laptopStore, imageStore, ratingStore}
+	return &LaptopServer{
+		laptopStore: laptopStore,
+		imageStore:  imageStore,
+		ratingStore: ratingStore,
+	}
 }
 
 // CreateLaptop is a unary RPC to create a new laptop

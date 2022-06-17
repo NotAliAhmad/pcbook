@@ -1,5 +1,7 @@
 gen:
-	protoc --proto_path=proto proto/*.proto  --go_out=:pb --go-grpc_out=:pb --grpc-gateway_out=:pb --swagger_out=:swagger
+	rm pb/*.go
+	protoc --proto_path=proto proto/*.proto  --go_out=pb --go-grpc_out=pb \
+	--grpc-gateway_out=pb --swagger_out=:swagger
 
 clean:
 	rm pb/*.go

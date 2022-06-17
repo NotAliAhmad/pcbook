@@ -11,7 +11,7 @@ import (
 	"github.com/techschool/pcbook/pb"
 )
 
-/// ErrAlreadyExists is returned when a record with the same ID already exists in the store
+// ErrAlreadyExists is returned when a record with the same ID already exists in the store
 var ErrAlreadyExists = errors.New("record already exists")
 
 // LaptopStore is an interface to store laptop
